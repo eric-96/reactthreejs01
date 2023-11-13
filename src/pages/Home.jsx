@@ -1,4 +1,4 @@
-import { Suspense } from 'react'
+import { Suspense, useEffect, useRef, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import Loader from '../components/Loader'
 import Drone from '../models/drone'
@@ -8,6 +8,8 @@ import Drone from '../models/drone'
 </div> */}
 
 const Home = () => {
+    const [currentStage, setCurrentStage] = useState(1);
+    const [isRotating, setIsRotating] = useState(false);
   
     const adjustDroneForScreenSize = () => {
       let screenScale = null;
@@ -28,7 +30,7 @@ const Home = () => {
 
     <section className='w-full h-screen relative'>
       <Canvas 
-        className='w-full h-full bg-transparent'
+        className={`w-full h-full bg-transparent ${isRotating} ? 'cursor-grabbing' : 'cursor-grab'}`}
         camera={{ near: 0.1, far: 1000 }}
         >
            <Suspense fallback={<Loader />}>
@@ -56,6 +58,9 @@ const Home = () => {
               position={dronePosition}
               scale = {droneScale} 
               rotation={rotation} 
+              isRotating={isRotating}
+              setIsRotating={setIsRotating}
+              setCurrentStage={setCurrentStage}
                />
           </Suspense>
 
