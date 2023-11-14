@@ -1,17 +1,20 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <header className='header'>
-        <NavLink to='/' className='flex justify-center font-bold shadow-md w-10 h-10 rounded-lg bg-white items-center'>
-        <p className='blue-gradient_text'>ESP</p>
-        </NavLink>
-        <nav className='flex text-lg gap-7 font-medium'>
-            <NavLink to='/about' className={({ isActive }) => isActive ? 'text-blue-500' : 'text-black' }>About</NavLink>
-            <NavLink to='/projects' className={({ isActive }) => isActive ? 'text-blue-500' : 'text-black' }>Projects</NavLink>
+    <header className='w-full relative'>
+      <NavLink to='/' className='absolute left-0 ml-10 p-6 font-bold'>
+        <p className='text-2xl'> &#10096; DEV.ERIC  &#10097;</p>
+      </NavLink>
+      <div className='flex justify-center bg-grey-100 h-full w-full py-1'>
+        <nav className='flex text-lg  p-6 space-x-7 font-bold'>
+          <NavLink to='/about' className={({ isActive }) => isActive ? 'text-blue-500' : 'text-black' }>About</NavLink>
+          <NavLink to='/projects' className={({ isActive }) => isActive ? 'text-blue-500' : 'text-black' }>Projects</NavLink>
+          <NavLink to='/contact' className={({ isActive }) => isActive ? 'text-blue-500' : 'text-black' }>Contact</NavLink>
         </nav>
+      </div>
     </header>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

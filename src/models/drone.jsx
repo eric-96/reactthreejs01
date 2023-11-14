@@ -13,6 +13,8 @@ import { useFrame, useThree } from "@react-three/fiber";
 import { a } from "@react-spring/three";
 import drone3d from "../assets/assets/3d/drone.glb";
 
+import { Environment } from '@react-three/drei';
+
 const Drone = ({ isRotating, setIsRotating, setCurrentStage, ...props}) => {
   const group = useRef();
   const { gl, viewport } = useThree();
@@ -159,6 +161,8 @@ const Drone = ({ isRotating, setIsRotating, setCurrentStage, ...props}) => {
 
 
   return (
+    <>
+    <>
     <a.group ref={group} {...props} dispose={null}>
       <group name="Sketchfab_Scene">
         <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
@@ -355,6 +359,9 @@ const Drone = ({ isRotating, setIsRotating, setCurrentStage, ...props}) => {
         </group>
       </group>
     </a.group>
+    </>
+    <Environment preset="sunset" />
+    </>
   );
 }
 

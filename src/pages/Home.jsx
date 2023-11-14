@@ -34,26 +34,6 @@ const Home = () => {
         camera={{ near: 0.1, far: 1000 }}
         >
            <Suspense fallback={<Loader />}>
-            <directionalLight 
-              position={[100, 0, 50]} // Position the light source above the scene
-              intensity={15} // Adjust the brightness of the light
-              castShadow // Enable shadows
-            />
-            <ambientLight 
-              intensity={0.3} // Use a lower intensity for ambient light
-            />
-            <spotLight  
-              position={[10, , 10]} 
-              angle={0.15} 
-              penumbra={1} 
-              intensity={1} 
-              castShadow // Enable shadows
-            />
-            <hemisphereLight 
-              skyColor={'#ffffff'} 
-              groundColor={'#ffffff'} 
-              intensity={0.5} 
-              />
               <Drone
               position={dronePosition}
               scale = {droneScale} 
