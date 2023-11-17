@@ -28,15 +28,6 @@ const Drone = ({ isRotating, setIsRotating, setCurrentStage, ...props}) => {
   const dampingFactor = 0.95;
 
 
-  useEffect(() => {
-    if (actions && actions["Take 01"]) {
-      actionRef.current = actions["Take 01"];
-      actionRef.current.setLoop(THREE.LoopRepeat, Infinity); // Infinity will make it loop continuously
-      actionRef.current.clampWhenFinished = false;
-      actionRef.current.play();
-    }
-  }, [actions]);
-
   const handlePointerDown = (e) => {
     e.stopPropagation();
     e.preventDefault();
@@ -167,18 +158,18 @@ const Drone = ({ isRotating, setIsRotating, setCurrentStage, ...props}) => {
       <group name="Sketchfab_Scene">
         <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
           <group name="Root">
-            <group name="Circle" position={[1.378, 1.984, 0.607]} scale={0.421}>
+            <group name="Circle" position={[1.378, 1.984, 0.607]} scale={0.4211}>
               <mesh
                 name="Circle_0"
-                castShadow
-                receiveShadow
+                castShadow={false}
+                receiveShadow={false}
                 geometry={nodes.Circle_0.geometry}
                 material={materials["Material.001"]}
               />
               <mesh
                 name="Circle_1"
-                castShadow
-                receiveShadow
+                castShadow={false}
+                receiveShadow={false}
                 geometry={nodes.Circle_1.geometry}
                 material={materials["Material.003"]}
               />
@@ -186,15 +177,15 @@ const Drone = ({ isRotating, setIsRotating, setCurrentStage, ...props}) => {
             <group name="Circle001" position={[3.077, 2.731, -0.052]}>
               <mesh
                 name="Circle001_0"
-                castShadow
-                receiveShadow
+                castShadow={false}
+                receiveShadow={false}
                 geometry={nodes.Circle001_0.geometry}
                 material={materials["Material.001"]}
               />
               <mesh
                 name="Circle001_1"
-                castShadow
-                receiveShadow
+                castShadow={false}
+                receiveShadow={false}
                 geometry={nodes.Circle001_1.geometry}
                 material={materials["Material.003"]}
               />
@@ -206,15 +197,15 @@ const Drone = ({ isRotating, setIsRotating, setCurrentStage, ...props}) => {
             >
               <mesh
                 name="Cube_0"
-                castShadow
-                receiveShadow
+                castShadow={false}
+                receiveShadow={false}
                 geometry={nodes.Cube_0.geometry}
                 material={materials["Material.001"]}
               />
               <mesh
                 name="Cube_1"
-                castShadow
-                receiveShadow
+                castShadow={false}
+                receiveShadow={false}
                 geometry={nodes.Cube_1.geometry}
                 material={materials["Material.002"]}
               />
@@ -226,8 +217,8 @@ const Drone = ({ isRotating, setIsRotating, setCurrentStage, ...props}) => {
             >
               <mesh
                 name="Sphere_0"
-                castShadow
-                receiveShadow
+                castShadow={false}
+                receiveShadow={false}
                 geometry={nodes.Sphere_0.geometry}
                 material={materials["Material.005"]}
               />
@@ -239,8 +230,8 @@ const Drone = ({ isRotating, setIsRotating, setCurrentStage, ...props}) => {
             >
               <mesh
                 name="Sphere001_0"
-                castShadow
-                receiveShadow
+                castShadow={false}
+                receiveShadow={false}
                 geometry={nodes.Sphere001_0.geometry}
                 material={materials["Material.004"]}
               />
@@ -252,8 +243,8 @@ const Drone = ({ isRotating, setIsRotating, setCurrentStage, ...props}) => {
             >
               <mesh
                 name="Cube001_0"
-                castShadow
-                receiveShadow
+                castShadow={false}
+                receiveShadow={false}
                 geometry={nodes.Cube001_0.geometry}
                 material={materials["Cylinder.001_0"]}
               />
@@ -266,8 +257,8 @@ const Drone = ({ isRotating, setIsRotating, setCurrentStage, ...props}) => {
             >
               <mesh
                 name="Circle002_0"
-                castShadow
-                receiveShadow
+                castShadow={false}
+                receiveShadow={false}
                 geometry={nodes.Circle002_0.geometry}
                 material={materials.pale}
               />
@@ -280,8 +271,8 @@ const Drone = ({ isRotating, setIsRotating, setCurrentStage, ...props}) => {
             >
               <mesh
                 name="Circle003_0"
-                castShadow
-                receiveShadow
+                castShadow={false}
+                receiveShadow={false}
                 geometry={nodes.Circle003_0.geometry}
                 material={materials.pale}
               />
@@ -294,8 +285,8 @@ const Drone = ({ isRotating, setIsRotating, setCurrentStage, ...props}) => {
             >
               <mesh
                 name="Circle004_0"
-                castShadow
-                receiveShadow
+                castShadow={false}
+                receiveShadow={false}
                 geometry={nodes.Circle004_0.geometry}
                 material={materials.pale}
               />
@@ -308,8 +299,8 @@ const Drone = ({ isRotating, setIsRotating, setCurrentStage, ...props}) => {
             >
               <mesh
                 name="Circle005_0"
-                castShadow
-                receiveShadow
+                castShadow={false}
+                receiveShadow={false}
                 geometry={nodes.Circle005_0.geometry}
                 material={materials.pale}
               />
@@ -322,8 +313,8 @@ const Drone = ({ isRotating, setIsRotating, setCurrentStage, ...props}) => {
             >
               <mesh
                 name="Cylinder_0"
-                castShadow
-                receiveShadow
+                castShadow={false}
+                receiveShadow={false}
                 geometry={nodes.Cylinder_0.geometry}
                 material={materials["Cylinder.001_0"]}
               />
@@ -336,8 +327,8 @@ const Drone = ({ isRotating, setIsRotating, setCurrentStage, ...props}) => {
             >
               <mesh
                 name="Cylinder001_0"
-                castShadow
-                receiveShadow
+                castShadow={false}
+                receiveShadow={false}
                 geometry={nodes.Cylinder001_0.geometry}
                 material={materials["Cylinder.001_0"]}
               />
@@ -349,8 +340,8 @@ const Drone = ({ isRotating, setIsRotating, setCurrentStage, ...props}) => {
             >
               <mesh
                 name="Circle006_0"
-                castShadow
-                receiveShadow
+                castShadow={false}
+                receiveShadow={false}
                 geometry={nodes.Circle006_0.geometry}
                 material={materials["Material.006"]}
               />

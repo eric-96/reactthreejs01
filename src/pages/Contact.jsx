@@ -2,7 +2,7 @@ import React, { Suspense, useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
 import Loader from '../components/Loader'
 import { Canvas } from '@react-three/fiber'
-import PearlDrone from '../models/pearldrone'
+import Cube from '../models/cube'
 
 const Contact = () => {
 
@@ -42,39 +42,46 @@ const Contact = () => {
   });
 };
   
-  const handleFocus = () => {};
-  const handleBlur = () => {};
-
-  const [currentStage, setCurrentStage] = useState(1);
-    const [isRotating, setIsRotating] = useState(false);
-  
-    const adjustDroneForScreenSize = () => {
-      let screenScale = null;
-      let screenPosition = [0, -5, -10];
-      let rotation = [0.1, -0.8, -0.1];
-
-      if (window.innerWidth < 768) {
-        screenScale = 2;
-      } else {
-        screenScale = 3;
-      }
-      return [screenScale, screenPosition, rotation];
-    }
-      const [droneScale, dronePosition, rotation] =
-       adjustDroneForScreenSize();
+ 
 
 
   return (
-    <section className='relative flex w-full h-screen mt-10 items-center flex-col lg:flex-row px-4'>
-    <div className='flex-1 flex flex-col justify-center items-center lg:items-start px-4 lg:px-12 w-full lg:w-auto'>
-    <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl head-text'>Get in Touch</h1>
+    <section className='flex flex-col text-white justify-center items-center h-screen w-full'>
+        <section className='w-[150vw] z-0 h-[100vh] bottom-0 rounded-full absolute top-[650px] blur-3xl bg-gradient-to-r from-teal-300 to-fuchsia-400'></section>
+        <Canvas 
+        style={{ height: '100px', width: '100px' }}>
+        <Suspense fallback={<Loader />}>
+          <Cube 
+           randomColorStart={true} 
+           initialRotation={1}/>
+          </Suspense>
+        </Canvas>
+          <Canvas className='absolute right-24 bottom-10 cursor-grabbing'
+        style={{ height: '200px', width: '200px' }}>
+        <Suspense fallback={<Loader />}>
+          <Cube 
+          randomColorStart={true}
+          initialRotation={2} />
+          </Suspense>
+        </Canvas>
+        <Canvas 
+        style={{ height: '400px', width: '400px' }}>
+        <Suspense fallback={<Loader />}>
+          <Cube 
+          randomColorStart={true}
+          initialRotation={0}/>
+          </Suspense>
+        </Canvas>
+    <div className='sm:w-full sm:px-24 sm:absolute lg:w-1/2 lg:justify-start flex sm:justify-center sm:items-center flex-col z-10'>
+    <h1 className='text-4xl font-bold'>Let's have a chat</h1>
+    <p className='text-sm font-extralight'>about anything!!!!</p>
 
     <form 
       className='w-full flex flex-col gap-7 mt-14'
         onSubmit={handleSubmit}
         
         >
-          <label className='text-black-500 font-semibold'>
+          <label>
             Name
             <input
              type='text'
@@ -84,11 +91,9 @@ const Contact = () => {
              required
              value={form.name}
              onChange={handleChange}
-             onFocus={handleFocus}
-             onBlur={handleBlur}
            />
           </label>
-          <label className='text-black-500 font-semibold'>
+          <label>
             Email
             <input
              type='email'
@@ -98,11 +103,9 @@ const Contact = () => {
              required
              value={form.email}
              onChange={handleChange}
-             onFocus={handleFocus}
-             onBlur={handleBlur}
            />
           </label>
-          <label className='text-black-500 font-semibold'>
+          <label>
             Your Message
             <textarea
              name='message'
@@ -112,40 +115,21 @@ const Contact = () => {
              required
              value={form.message}
              onChange={handleChange}
-             onFocus={handleFocus}
-             onBlur={handleBlur}
            />
           </label>
           <button 
           type='submit'
-          className='btn btn-blue'
+          className='text-center mt-5 px-2 py-1 border-solid border-2 border-white backdrop-blur-3xl'
           disabled={isLoading}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
           >
             {isLoading ? 'Sending...' : 'Send Message'}
 
           </button>
         </form>
       </div>
-
-      <div className='flex-1 flex justify-center h-full items-center w-full lg:w-auto'>
-        <Canvas>
-          <Suspense fallback={<Loader />}>
-
-          <PearlDrone 
-          position={dronePosition}
-          scale = {droneScale} 
-          rotation={rotation} 
-          isRotating={isRotating}
-          setIsRotating={setIsRotating}
-          setCurrentStage={setCurrentStage}/>
-          </Suspense>
-          
-
-        </Canvas>
-      </div>
     </section>
+    
+    
   )
 }
 

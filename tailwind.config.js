@@ -6,17 +6,8 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        gray: {
-          200: "#D5DAE1"
-        },
-        black: {
-          DEFAULT: "#000",
-          500: "#1D2235"
-        },
-        blue: {
-          500: "#2b77e7"
-        }
+      blur: {
+        xl: '150px',
       },
       fontFamily: {
         worksans: ["Work Sans", "sans-serif"],
@@ -27,5 +18,6 @@ export default {
       }
     },
   },
-  plugins: [],
-}
+  plugins:[],
+  
+};
