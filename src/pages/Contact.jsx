@@ -46,21 +46,30 @@ const Contact = () => {
 
 
   return (
-    <section className='flex flex-col text-white justify-center items-center h-screen w-full'>
-        <section className='w-[150vw] z-0 h-[100vh] bottom-0 rounded-full absolute top-[650px] blur-3xl bg-gradient-to-r from-teal-300 to-fuchsia-400'></section>
+    <section className='w-full h-screen text-white font-bold bg-stone-900 relative'>
+    <div className='absolute text-xl z-10 inset-0 top-[130px] left-[-100px] w-[900px] mx-auto px-6 flex flex-row items-start gap-5'>
+          <div className='flex flex-col justify-center items-center mt-5 bg-transparent'>
+            <div className='w-10 sm:h-80 h-40 bg-gradient-to-b from-transparent via-red-400 to-purple-400'></div>
+            <div className='w-10 h-10 mt-5 bg-purple-400'></div>
+            <div className='w-10 h-10 mt-5 bg-purple-500'></div>
+        </div>
+            <div>
+            <h1 className='text-8xl font-bold'>Tell me about your project &#x268C;&#x268D;&#x268E;&#x268F;</h1>
+             <p className='text-sm font-extralight'>or about anything!!!!</p>
+        </div>
+          <div className='absolute right-[150px] bottom-10'>
         <Canvas 
         style={{ height: '100px', width: '100px' }}>
         <Suspense fallback={<Loader />}>
           <Cube 
-           randomColorStart={true} 
+ 
            initialRotation={1}/>
           </Suspense>
         </Canvas>
-          <Canvas className='absolute right-24 bottom-10 cursor-grabbing'
+          <Canvas className='absolute left-24 bottom-10 cursor-grabbing'
         style={{ height: '200px', width: '200px' }}>
         <Suspense fallback={<Loader />}>
           <Cube 
-          randomColorStart={true}
           initialRotation={2} />
           </Suspense>
         </Canvas>
@@ -68,16 +77,12 @@ const Contact = () => {
         style={{ height: '400px', width: '400px' }}>
         <Suspense fallback={<Loader />}>
           <Cube 
-          randomColorStart={true}
           initialRotation={0}/>
           </Suspense>
         </Canvas>
-    <div className='sm:w-full sm:px-24 sm:absolute lg:w-1/2 lg:justify-start flex sm:justify-center sm:items-center flex-col z-10'>
-    <h1 className='text-4xl font-bold'>Let's have a chat</h1>
-    <p className='text-sm font-extralight'>about anything!!!!</p>
-
+        </div>
     <form 
-      className='w-full flex flex-col gap-7 mt-14'
+      className='w-full flex flex-col gap-7 mt-5'
         onSubmit={handleSubmit}
         
         >
@@ -119,7 +124,7 @@ const Contact = () => {
           </label>
           <button 
           type='submit'
-          className='text-center mt-5 px-2 py-1 border-solid border-2 border-white backdrop-blur-3xl'
+          className='text-center mt-5 px-2 py-1 border-none bg-gradient-to-r from-red-300 via-purple-300 to-teal-300 hover:bg-none hover:bg-white hover:text-black'
           disabled={isLoading}
           >
             {isLoading ? 'Sending...' : 'Send Message'}

@@ -6,8 +6,8 @@ import { OrbitControls } from '@react-three/drei';
 
 const Cube = ({ randomColorStart = false, initialRotation = 0 }) => {
     const mesh = useRef();
-    const colors = ['#FA7921', '#F038FF', '#2CF6B3', '#648DE5', '#1AC8ED'];
-    const initialColor = randomColorStart ? colors[Math.floor(Math.random() * colors.length)] : '#F038FF';
+    const colors = ['#C084B6', '#F7786B', '#F8719D', '#5ECED4', '#D8B4FE'];
+    const initialColor = randomColorStart ? colors[Math.floor(Math.random() * colors.length)] : '#FFFFF';
     const [cubeColor, setCubeColor] = useState(initialColor);
   
     const handleClick = () => {
@@ -45,7 +45,7 @@ const Cube = ({ randomColorStart = false, initialRotation = 0 }) => {
           <pointLight position={[0, 0, -10]} intensity={70} />
           <pointLight position={[0, 10, 0]} intensity={70} />
           <ambientLight intensity={0.04} />
-          <OrbitControls />
+          <OrbitControls enablePan={false} enableZoom={false}  />
         </>
     );
 };

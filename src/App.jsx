@@ -6,9 +6,9 @@ import { Home, About, Projects, Contact } from './pages';
 
 const App = () => {
   return (
-    <main className='bg-gray-900 font-poppins'>
+    <main className='bg-stone-900 font-poppins'>
       <Router>
-      <Navbar className="z-50"/>
+      <Navbar/>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />

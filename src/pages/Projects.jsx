@@ -2,7 +2,8 @@ import React from 'react'
 
 const Projects = () => {
   return (
-    <div></div>
+    <section className='w-full h-screen text-white font-bold bg-stone-900 relative'>
+      </section>
   )
 }
 
