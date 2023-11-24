@@ -3,10 +3,10 @@ import react from '@vitejs/plugin-react'
 import path from 'path'
 
 export default defineConfig({
+  base: '/reactthreejs01',
   plugins: [react()],
   build: {
     rollupOptions: {
-      input: './src/main.jsx',
     },
   },
   resolve: {
