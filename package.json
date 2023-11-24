@@ -1,9 +1,9 @@
 {
+  "homepage": "https://eric-96.github.io/reactthreejs01",
   "name": "odin-react-vite-playground",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://eric-96.github.io/reactthreejs01",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
