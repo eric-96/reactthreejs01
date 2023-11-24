@@ -18,7 +18,6 @@ const Cube = ({ randomColorStart = false, initialRotation = 0}) => {
     useEffect(() => {
       window.addEventListener('click', handleClick);
   
-      // Don't forget to remove the event listener when the component unmounts
       return () => {
         window.removeEventListener('click', handleClick);
       };
