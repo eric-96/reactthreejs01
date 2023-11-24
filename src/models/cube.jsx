@@ -4,16 +4,25 @@ import { MeshPhongMaterial, MeshStandardMaterial, MeshPhysicalMaterial, MeshBasi
 import { OrbitControls } from '@react-three/drei';
 
 
-const Cube = ({ randomColorStart = false, initialRotation = 0 }) => {
+const Cube = ({ randomColorStart = false, initialRotation = 0}) => {
     const mesh = useRef();
     const colors = ['#C084B6', '#F7786B', '#F8719D', '#5ECED4', '#D8B4FE'];
-    const initialColor = randomColorStart ? colors[Math.floor(Math.random() * colors.length)] : '#FFFFF';
+    const initialColor = randomColorStart ? colors[Math.floor(Math.random() * colors.length)] : '#F7786B';
     const [cubeColor, setCubeColor] = useState(initialColor);
   
     const handleClick = () => {
       const randomColor = colors[Math.floor(Math.random() * colors.length)];
       setCubeColor(randomColor);
     };
+
+    useEffect(() => {
+      window.addEventListener('click', handleClick);
+  
+      // Don't forget to remove the event listener when the component unmounts
+      return () => {
+        window.removeEventListener('click', handleClick);
+      };
+    }, []);
     const { gl } = useThree();
   
     useEffect(() => {
@@ -42,8 +51,8 @@ const Cube = ({ randomColorStart = false, initialRotation = 0 }) => {
             <boxGeometry args={[3, 3, 3]} />
             <meshStandardMaterial color={cubeColor} specular={cubeColor} metalness={10} />
           </mesh>
-          <pointLight position={[0, 0, -10]} intensity={70} />
-          <pointLight position={[0, 10, 0]} intensity={70} />
+          <pointLight position={[0, 0, -10]} intensity={15} />
+          <pointLight position={[0, 10, 0]} intensity={10} />
           <ambientLight intensity={0.04} />
           <OrbitControls enablePan={false} enableZoom={false}  />
         </>

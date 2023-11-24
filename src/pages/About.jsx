@@ -2,45 +2,49 @@ import React from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react';
 import Loader from '../components/Loader'
-import Balls from '../models/balls'
+import Cube from '../models/cube'
+import { useEffect } from 'react';
 
 
 const About = () => {
+
   return (
-    <div className='w-full h-screen  bg-stone-900 text-white flex relative justify-center'>
-      <Canvas>
+    <div className='w-full h-screen bg-stone-900 text-white flex relative justify-center'>
+    <div className="flex absolute  z-10 items-center w-full h-full sm:w-4/5 lg:w-2/5 flex-wrap">
+    <div className=''>
+
+    <div className='flex justify-center p-5 text-center items-center bg-stone-900 bg-opacity-50 flex-col flex-wrap'>
+
+    <figure className=''><img src='./src/assets/assets/images/me.jpg' alt="Photo"
+    className='h-[180px] w-[180px] object-cover border-solid border-2 border-red-300 rounded-full' /></figure>
+      <h2 className="text-2xl p-3 flex font-bold">
+     Q: What do you mean 'Fullstack Developer'?
+      </h2>
+      <p className='pt-5 text-center'>Imagine a bridge between the user interface you interact with and the server that
+       processes your requests — that's the realm where a Fullstack Developer works.</p>
+       <p className='mt-3 text-center'><span className='text-green-300'>User Experience</span>,<span className='text-green-300' > Interface Design</span> and 
+       <span className='text-green-300'> responsiveness</span> are at the forefront of my work, creating interfaces that function flawlessly and engage users with
+       aesthetic appeal. Behind the scenes, a robust <span className='text-green-300'> server-side logic</span>, <span className='text-green-300'>database management</span>, 
+       <span className='text-green-300'> API</span> integration and <span className='text-green-300'>security</span> measures.</p>
+       </div>
+      <div className="flex justify-center flex-wrap p-2 bg-stone-900 bg-opacity-50">
+        <div className="text-sm text-red-500 border border-red-500 px-2 py-1 rounded-full mt-2 mr-2">Node.js</div> 
+        <div className="text-sm text-red-400 border border-red-400 px-2 py-1 rounded-full mt-2 mr-2">Databases</div>
+        <div className="text-sm text-red-300 border border-red-300 px-2 py-1 rounded-full mt-2 mr-2">Security</div>
+        <div className="text-sm text-red-200 border border-red-300 px-2 py-1 rounded-full mt-2 mr-2">APIs</div>
+        <div className="text-sm text-green-200 border border-green-200 px-2 py-1 rounded-full mt-2 mr-2">Javascript</div>
+        <div className="text-sm text-green-300 border border-green-300 px-2 py-1 rounded-full mt-2 mr-2">React</div>
+        <div className="text-sm text-green-400 border border-green-400 px-2 py-1 rounded-full mt-2 mr-2">Typescript</div>
+        <div className="text-sm text-green-500 border border-green-500 px-2 py-1 rounded-full mt-2 mr-2">TailwindCSS</div>
+      </div>
+
+    </div>
+    </div>
+      <Canvas className='absolute'>
     <Suspense fallback={<Loader />}>
-      <Balls />
+      <Cube initialColor={'#F7786B'} />
       </Suspense>
   </Canvas>
-    <div className="w-1/2 absolute h-2/3 bg-opacity-0 p-6">
-    <div className='p-10'>
-    <figure><img src='./src/assets/assets/images/me.jpg' alt="Photo"
-    className='h-[250px] w-[250px] object-contain rounded-full' /></figure>
-      <h2 className="text-2xl font-bold flex items-center">
-      Shoes!Shoes!Shoes!Shoes!Shoes!Shoes!
-        <div className="ml-2 inline-block bg-teal-300 text-md px-2 rounded-full">NEW</div>
-      </h2>
-      <p className='pt-5'>If a dog chews shoes whose shoes does he choose? 
-      If a dog chews shoes whose shoes does he choose?
-      If a dog chews shoes whose shoes does he choose?
-      If a dog chews shoes whose shoes does he choose?
-      If a dog chews shoes whose shoes does he choose?
-      If a dog chews shoes whose shoes does he choose?
-      If a dog chews shoes whose shoes does he choose?
-      If a dog chews shoes whose shoes does he choose?
-      If a dog chews shoes whose shoes does he choose?</p>
-      <div className="flex justify-start p-5 mt-4">
-        <div className="text-sm text-purple-200 border border-purple-200 px-2 py-1 rounded-full mr-2">Fashion</div> 
-        <div className="text-sm text-purple-300 border border-purple-300 px-2 py-1 rounded-full mr-2">Products</div>
-        <div className="text-sm text-purple-400 border border-purple-400 px-2 py-1 rounded-full mr-2">Products</div>
-        <div className="text-sm text-blue-400 border border-blue-400 px-2 py-1 rounded-full mr-2">Products</div>
-        <div className="text-sm text-blue-300 border border-blue-300 px-2 py-1 rounded-full mr-2">Products</div>
-        <div className="text-sm text-teal-300 border border-teal-300 px-2 py-1 rounded-full mr-2">Products</div>
-        <div className="text-sm text-teal-200 border border-teal-200 px-2 py-1 rounded-full mr-2">Products</div>
-      </div>
-    </div>
-  </div>
 
     </div>
 

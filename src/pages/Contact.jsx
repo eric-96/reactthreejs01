@@ -1,4 +1,4 @@
-import React, { Suspense, useRef, useState } from 'react'
+import React, { Suspense, useState } from 'react'
 import emailjs from '@emailjs/browser'
 import Loader from '../components/Loader'
 import { Canvas } from '@react-three/fiber'
@@ -8,6 +8,8 @@ const Contact = () => {
 
   const [form, setform] = useState({name:'', email:'', message:''})
   const [isLoading, setisLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [successMessage, setSuccessMessage] = useState(null);
 
 
   const handleChange = (e) => {
@@ -32,13 +34,14 @@ const Contact = () => {
     )
     .then(() => {
       setisLoading(false);
-      //TODO: Show success message
-      //TODO: Hide an alert
+      setSuccessMessage('Your message has been sent successfully!');
+      setErrorMessage(null);
       setform({ name: '', email: '', message: '' });
     }).catch((error) => {
       setisLoading(false);
       console.log(error);
-      //TODO: Show error message
+      setErrorMessage('An error occurred while sending your message.');
+      setSuccessMessage(null);
   });
 };
   
@@ -46,92 +49,95 @@ const Contact = () => {
 
 
   return (
-    <section className='w-full h-screen text-white font-bold bg-stone-900 relative'>
-    <div className='absolute text-xl z-10 inset-0 top-[130px] left-[-100px] w-[900px] mx-auto px-6 flex flex-row items-start gap-5'>
-          <div className='flex flex-col justify-center items-center mt-5 bg-transparent'>
-            <div className='w-10 sm:h-80 h-40 bg-gradient-to-b from-transparent via-red-400 to-purple-400'></div>
-            <div className='w-10 h-10 mt-5 bg-purple-400'></div>
-            <div className='w-10 h-10 mt-5 bg-purple-500'></div>
+    <section className='w-full h-screen flex justify-center text-white font-bold bg-stone-900 py-[100px]'>
+      
+    <div className='flex z-10 flex-col absolute p-5 items-center justify-center sm:w-4/5 lg:w-3/5'>
+    {errorMessage && <p className="error-message text-white p-2 rounded-full bg-red-400">{errorMessage}</p>}
+        {successMessage && <p className="success-message text-white p-2 rounded-full bg-green-400">{successMessage}</p>}
+      <div>
+            <div className='text-center'>
+            <h1 className='text-5xl md:text-6xl font-bold'>Tell me about your<br></br> project needs</h1>
+             <p className='text-sm font-regular bg-stone-900 bg-opacity-30 mt-2'>or about anything !!!!</p>
+    </div>
+          <form 
+            className='text-start p-2 flex flex-col items-center w-full gap-5'
+              onSubmit={handleSubmit}
+              
+              >
+                <label className='w-full'>
+                  Name
+                  <input
+                   type='text'
+                   name='name'
+                   className='input'
+                   placeholder='Your Name'
+                   required
+                   value={form.name}
+                   onChange={handleChange}
+                 />
+                </label>
+                <label className='w-full'>
+                  Email
+                  <input
+                   type='email'
+                   name='email'
+                   className='input'
+                   placeholder='youremail@something.com'
+                   required
+                   value={form.email}
+                   onChange={handleChange}
+                 />
+                </label>
+                <label className='w-full'>
+                  Your Message
+                  <textarea
+                   name='message'
+                   rows={4}
+                   className='textarea'
+                   placeholder='Let me know how I can help you!'
+                   required
+                   value={form.message}
+                   onChange={handleChange}
+                 />
+                </label>
+                <button 
+                type='submit'
+                className='text-center px-2 py-1 border-none bg-gradient-to-r from-red-300 via-purple-300 to-teal-300 hover:bg-none hover:bg-white hover:text-black'
+                disabled={isLoading}
+                >
+                  {isLoading ? 'Sending...' : 'Send Message'}
+      
+                </button>
+              </form>
         </div>
-            <div>
-            <h1 className='text-8xl font-bold'>Tell me about your project &#x268C;&#x268D;&#x268E;&#x268F;</h1>
-             <p className='text-sm font-extralight'>or about anything!!!!</p>
-        </div>
-          <div className='absolute right-[150px] bottom-10'>
+          </div>
+         
+        
+          <div className=''>
         <Canvas 
         style={{ height: '100px', width: '100px' }}>
         <Suspense fallback={<Loader />}>
-          <Cube 
- 
-           initialRotation={1}/>
-          </Suspense>
+        <Cube 
+        
+        initialRotation={1}/>
+        </Suspense>
         </Canvas>
-          <Canvas className='absolute left-24 bottom-10 cursor-grabbing'
+        <Canvas className='absolute left-24 bottom-10 cursor-grabbing'
         style={{ height: '200px', width: '200px' }}>
         <Suspense fallback={<Loader />}>
-          <Cube 
-          initialRotation={2} />
-          </Suspense>
+        <Cube 
+        initialRotation={2} />
+        </Suspense>
         </Canvas>
         <Canvas 
-        style={{ height: '400px', width: '400px' }}>
+        style={{ height: '400px', width: '400px'}}>
         <Suspense fallback={<Loader />}>
-          <Cube 
-          initialRotation={0}/>
-          </Suspense>
-        </Canvas>
+        <Cube 
+        initialRotation={0}
+        randomColorStart={true}/>
+        </Suspense>
+      </Canvas>
         </div>
-    <form 
-      className='w-full flex flex-col gap-7 mt-5'
-        onSubmit={handleSubmit}
-        
-        >
-          <label>
-            Name
-            <input
-             type='text'
-             name='name'
-             className='input'
-             placeholder='Your Name'
-             required
-             value={form.name}
-             onChange={handleChange}
-           />
-          </label>
-          <label>
-            Email
-            <input
-             type='email'
-             name='email'
-             className='input'
-             placeholder='youremail@something.com'
-             required
-             value={form.email}
-             onChange={handleChange}
-           />
-          </label>
-          <label>
-            Your Message
-            <textarea
-             name='message'
-             rows={4}
-             className='textarea'
-             placeholder='Let me know how I can help you!'
-             required
-             value={form.message}
-             onChange={handleChange}
-           />
-          </label>
-          <button 
-          type='submit'
-          className='text-center mt-5 px-2 py-1 border-none bg-gradient-to-r from-red-300 via-purple-300 to-teal-300 hover:bg-none hover:bg-white hover:text-black'
-          disabled={isLoading}
-          >
-            {isLoading ? 'Sending...' : 'Send Message'}
-
-          </button>
-        </form>
-      </div>
     </section>
     
     

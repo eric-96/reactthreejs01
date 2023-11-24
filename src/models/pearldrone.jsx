@@ -37,7 +37,8 @@ const pearlDrone = ({ ...props }) => {
   return (
     <>
     <>
-    <a.group ref={group} {...props} dispose={null}>
+    <a.group ref={group} {...props} dispose={null} 
+          position={[1, 1, 1]}>
     <OrbitControls args={[camera, gl.domElement]} />
       <group name="Sketchfab_Scene">
         <group

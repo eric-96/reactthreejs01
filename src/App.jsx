@@ -6,9 +6,9 @@ import { Home, About, Projects, Contact } from './pages';
 
 const App = () => {
   return (
-    <main className='bg-stone-900 font-poppins'>
+    <>
       <Router>
-      <Navbar/>
+      <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
@@ -16,7 +16,9 @@ const App = () => {
           <Route path='/contact' element={<Contact />} />
         </Routes>
       </Router>
+    <main className='bg-stone-900 font-poppins'>
     </main>
+    </>
   )
 }
 
