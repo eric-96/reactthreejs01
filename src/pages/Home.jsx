@@ -1,13 +1,14 @@
-import { Suspense, useRef, useState } from 'react'
+import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 import Loader from '../components/Loader'
 import Stuff from '../models/stuff'
+/* import github from '../assets/assets/icons/github.svg'
+import linkedin from '../assets/assets/icons/linkedin.svg' */
 
 
 const Home = () => {
 
-/*   absolute text-8xl inset-0 top-[130px] left-[-350px] w-[800px] mx-auto flex items-start gap-5
- */    return (
+  return (
       <section className='w-full h-screen text-white font-bold bg-stone-900 relative'>
         <div className='absolute z-10 inset-0 top-[130px] flex sm:ml-[-100px] justify-center flex-row items-start sm:w-4/5 md:w-4/5 h-1/4 sm:h-1/2 gap-5'>
           
@@ -19,6 +20,10 @@ const Home = () => {
           <h1 className='text-7xl lg:text-8xl'>Hi, I'm Eric</h1>
           
           <p className='text-2xl pt-5 text-start px-2 font-light'>FULLSTACK SOFTWARE DEVELOPER</p>
+         {/*  <div className='flex justify-center bg- py-5'>
+          <img src={github} alt="Github Icon" className=" w-8 h-8 " />
+          <img src={linkedin} alt="Linkedin Icon" className="w-8 h-8 ml-2  " />
+          </div> */}
         </div>
         </div>
 

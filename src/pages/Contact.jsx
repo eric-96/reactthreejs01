@@ -102,7 +102,7 @@ const Contact = () => {
                 </label>
                 <button 
                 type='submit'
-                className='text-center px-2 py-1 border-none bg-gradient-to-r from-red-300 via-purple-300 to-teal-300 hover:bg-none hover:bg-white hover:text-black'
+                className='text-center px-2 py-1 border hover:bg-none hover:bg-white hover:text-black'
                 disabled={isLoading}
                 >
                   {isLoading ? 'Sending...' : 'Send Message'}

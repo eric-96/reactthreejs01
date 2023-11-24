@@ -5,19 +5,16 @@ License: CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 Source: https://sketchfab.com/3d-models/bouche-a-levres-f0b55b70bdcd49608c99cdf0e5e9747c
 Title: "Bouche à lèvres"
 */
-import React, { useEffect, useRef, useState } from "react";
-import { useGLTF, useAnimations, Environment, Html } from "@react-three/drei";
+import React, { useRef } from "react";
+import { useGLTF, Environment } from "@react-three/drei";
 import { OrbitControls } from '@react-three/drei';
-import cars from '../assets/assets/3d/cars.glb';
-import * as THREE from 'three';
 import { a } from '@react-spring/three';
-import { useFrame, useThree } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import stuff from '../assets/assets/3d/stuff.glb';
 
 const Stuff = ({ initialRotation, ...props }) => {
-    //ANIMATION
     const group = useRef();
-    const { nodes, materials, animations } = useGLTF(stuff);
+    const { nodes, materials } = useGLTF(stuff);
 
     useFrame(() => {
         group.current.rotation.y += 0.0025;
