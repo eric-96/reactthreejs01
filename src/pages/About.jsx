@@ -9,7 +9,7 @@ import myImage from '../assets/assets/images/me.jpg'
 const About = () => {
 
   return (
-    <div className='w-full min-h-screen bg-stone-900 pt-10 text-white overflow-y-auto flex relative justify-center'>
+    <div className='w-full z-10 h-screen bg-stone-900 pt-10 text-white overflow-y-auto flex relative justify-center'>
     <div className="flex absolute z-10 items-center w-full max-w-2xl flex-wrap">
     <div className=''>
 
@@ -26,6 +26,7 @@ const About = () => {
        <span className='text-green-300'> responsiveness</span> are at the forefront of my work, creating interfaces that function flawlessly and engage users with
        aesthetic appeal. Behind the scenes, a robust <span className='text-green-300'> server-side logic</span>, <span className='text-green-300'>database management</span>, 
        <span className='text-green-300'> API integration </span> and <span className='text-green-300'>security</span> measures.</p>
+       </div>
       <div className="flex justify-center flex-wrap py-4">
         <div className="text-sm text-red-500 border border-red-500 px-2 py-1 rounded-full mt-2">Node.js</div> 
         <div className="text-sm text-red-400 border border-red-400 px-2 py-1 rounded-full mt-2">Databases</div>
@@ -36,16 +37,15 @@ const About = () => {
         <div className="text-sm text-green-400 border border-green-400 px-2 py-1 rounded-full mt-2">Typescript</div>
         <div className="text-sm text-green-500 border border-green-500 px-2 py-1 rounded-full mt-2">TailwindCSS</div>
       </div>
-       </div>
 
     </div>
     </div>
-      <Canvas className='absolute'>
+
+      <Canvas>
     <Suspense fallback={<Loader />}>
       <Cube initialColor={'#F7786B'} />
       </Suspense>
   </Canvas>
-
     </div>
 
 
