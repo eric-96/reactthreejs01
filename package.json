@@ -1,6 +1,5 @@
 {
   "name": "odin-react-vite-playground",
-  "homepage": "https://eric-96.github.io/reactthreejs01/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +9,7 @@
     "lint": "eslint . --ext --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "netlify deploy --dir=dist"
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",

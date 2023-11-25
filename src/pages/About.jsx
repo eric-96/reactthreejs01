@@ -3,6 +3,7 @@ import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react';
 import Loader from '../components/Loader'
 import Cube from '../models/cube'
+import myImage from '../assets/assets/images/me.jpg'
 
 
 const About = () => {
@@ -14,7 +15,7 @@ const About = () => {
 
     <div className='flex justify-center p-5 text-center items-center bg-stone-900 bg-opacity-50 flex-col flex-wrap'>
 
-    <figure className=''><img src='./src/assets/assets/images/me.jpg' alt="Photo"
+    <figure className=''><img src={myImage} alt="Photo"
     className='h-[180px] w-[180px] object-cover border-solid border-2 border-red-300 rounded-full' /></figure>
       <h2 className="text-2xl p-3 flex font-bold">
      Q: What do you mean 'Fullstack Developer'?
