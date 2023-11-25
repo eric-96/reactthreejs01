@@ -4,7 +4,6 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/reactthreejs01',
   build: {
     rollupOptions: {
     },
@@ -20,5 +19,5 @@ export default defineConfig({
   server: {
     port: 3000,
   },
-  assetsInclude: ['**/*.glb'], // add this line
+  assetsInclude: ['**/*.glb'],
 })
