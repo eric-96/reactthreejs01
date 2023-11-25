@@ -33,8 +33,8 @@ const Cube = ({ randomColorStart = false, initialRotation = 0}) => {
     
       useFrame(() => {
         if (mesh.current) {
-          mesh.current.rotation.x += 0.01;
-          mesh.current.rotation.y += 0.01;
+          mesh.current.rotation.x += 0.006;
+          mesh.current.rotation.y += 0.006;
         }
       });
 
