@@ -51,7 +51,7 @@ const Contact = () => {
   return (
     <section className='w-full h-screen flex justify-center text-white font-bold bg-stone-900 py-[100px]'>
       
-    <div className='flex z-10 flex-col absolute p-5 items-center justify-center sm:w-4/5 lg:w-3/5'>
+    <div className='flex z-10 flex-col absolute p-5 items-center h-[500px] justify-center sm:w-4/5 lg:w-3/5'>
     {errorMessage && <p className="error-message text-white p-2 rounded-full bg-red-400">{errorMessage}</p>}
         {successMessage && <p className="success-message text-white p-2 rounded-full bg-green-400">{successMessage}</p>}
       <div>

@@ -24,6 +24,16 @@ const Home = () => {
           <img src={github} alt="Github Icon" className=" w-8 h-8 " />
           <img src={linkedin} alt="Linkedin Icon" className="w-8 h-8 ml-2  " />
           </div> */}
+          <div className="flex justify-center flex-wrap py-4">
+        <div className="text-sm text-teal-500 border border-teal-500 px-2 py-1 rounded-full mt-2">Node.js</div> 
+        <div className="text-sm text-teal-400 border border-teal-400 px-2 py-1 rounded-full mt-2">Databases</div>
+        <div className="text-sm text-teal-300 border border-teal-300 px-2 py-1 rounded-full mt-2">Security</div>
+        <div className="text-sm text-teal-200 border border-teal-300 px-2 py-1 rounded-full mt-2">APIs</div>
+        <div className="text-sm text-purple-200 border border-purple-200 px-2 py-1 rounded-full mt-2">Javascript</div>
+        <div className="text-sm text-purple-300 border border-purple-300 px-2 py-1 rounded-full mt-2">React</div>
+        <div className="text-sm text-purple-400 border border-purple-400 px-2 py-1 rounded-full mt-2">Typescript</div>
+        <div className="text-sm text-purple-500 border border-purple-500 px-2 py-1 rounded-full mt-2">TailwindCSS</div>
+      </div>
         </div>
         <div className='sm:flex flex-col justify-center  ml-10 items-center hidden'>
         {/*     <div className='w-1 h-5 rounded-full bg-teal-400'></div> */}
